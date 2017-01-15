@@ -2,17 +2,17 @@ Project: Behavioral Cloning
 ====================
 #Augmentation
 8000+ lines in Udacity data set is not enough for a full train, especially for recovery and for generalization for track 2. I applied following augmentation technics:   
-1. Select camera from (left, center, right)  
-2. Randomly change brightness  
-3. Transition horizontally  
-4. Crop, to reduce non-valued information  
-5. Random shadow, for the second track  
-6. Flip  
+* Select camera from (left, center, right)  
+* Randomly change brightness  
+* Transition horizontally. Without transition recovery doesn't work in my model. 
+* Crop, to reduce non-valued information  
+* Random shadow, for the second track  
+* Flip  
 
 In additional, I tried to draw on images previous value of steering (in fact - current direction),  but without success.  
 
 #Model
-For model architect I take Nvidia model from http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf
+Oposite sign recognition I take a complicate model from Nvidia from http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf with 1M parameters. 
                      
 * lambda_1 (Lambda)                (None, 103, 320, 3)   0           lambda_input_1[0][0]             
 * convolution2d_1 (Convolution2D)  (None, 52, 160, 3)    228         lambda_1[0][0]                   
@@ -52,5 +52,5 @@ Total params: 972,123
 * epochs = 10
 
 #Result
-Totally I make 40 runs with different model architectures, different augmentations, and different hyperparameters. The final model passed track 1 and half of track 2.  
+Thanks to GPU, totally I make 40 trains with different model architectures, different augmentations, and different hyperparameters. The final model passed track 1 and half of track 2.  
 The problem with track 2 is the sharp turn to the right on the descent after the tunnel: set throttle to 0 is not enough to decrease speed value, I need a brake to pass it. 
