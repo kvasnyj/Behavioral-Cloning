@@ -15,9 +15,9 @@ In additional, I tried to draw on images previous value of steering (in fact - c
 2. Model
 -----------------------
 3. Hyperparameters
-batch_size = 512
-samples_per_epoch = 39936
-epochs = 10
+* batch_size = 512
+* samples_per_epoch = 39936
+* epochs = 10
 ---------------------------------
 4. Result
 ---------------------------------------
