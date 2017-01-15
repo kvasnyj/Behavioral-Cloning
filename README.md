@@ -1,7 +1,7 @@
 Project: Behavioral Cloning
 ====================
 #Augmentation
-8000+ lines in Udacity data set is not enough for a full train, especially for recovery and for generalization for track 2. I applied following augmentation technics: 
+8000+ lines in Udacity data set is not enough for a full train, especially for recovery and for generalization for track 2. I applied following augmentation technics: </br>
 1. Select camera from (left, center, right)
 2. Randomly change brightness
 3. Transition horizontally 
